@@ -3,18 +3,9 @@ class Game
 
   def initialize answer: nil, max: nil
     @min = 1
-    if max
-      @max = max
-    else
-      @max = 10
-    end
+    @max = max || 10
     @guesses_left = 5
-
-    if answer
-      @answer = answer
-    else
-      @answer = rand(@min .. @max)
-    end
+    @answer = answer || rand(@min .. @max)
   end
 
   def out_of_guesses?
