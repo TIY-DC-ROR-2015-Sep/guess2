@@ -1,6 +1,9 @@
 require "./game"
 
-g = Game.new
+puts "What max do you want to play to?"
+limit = gets.chomp.to_i
+
+g = Game.new max: limit
 
 loop do
   puts "You have #{g.guesses_left} guesses"

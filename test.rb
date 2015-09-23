@@ -25,13 +25,13 @@ class GameTest < Minitest::Test
   end
 
   def test_check_guess_returns_correct_on_a_good_guess
-    g = Game.new 5
+    g = Game.new answer: 5
     result = g.check_guess 5
     assert_equal "correct", result
   end
 
   def test_check_gives_feedback
-    g = Game.new 7
+    g = Game.new answer: 7
     result = g.check_guess 9
     assert_equal "high", result
 
@@ -40,7 +40,7 @@ class GameTest < Minitest::Test
   end
 
   def test_can_run_out_of_guesses
-    g = Game.new 2
+    g = Game.new answer: 2
     5.times do
       g.check_guess 1
     end

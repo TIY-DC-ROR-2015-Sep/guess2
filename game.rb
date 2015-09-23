@@ -1,9 +1,13 @@
 class Game
   attr_reader :min, :max, :guesses_left
 
-  def initialize answer=nil
+  def initialize answer: nil, max: nil
     @min = 1
-    @max = 10
+    if max
+      @max = max
+    else
+      @max = 10
+    end
     @guesses_left = 5
 
     if answer
