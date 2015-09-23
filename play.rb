@@ -1,4 +1,17 @@
 require "./game"
 
 g = Game.new
-puts "This should play the game"
+
+loop do
+  puts "Guess a number between #{g.min} and #{g.max}"
+  guess = gets.chomp.to_i
+  if g.check_guess guess
+    puts "You won!"
+    break
+  end
+
+  if g.out_of_guesses?
+    puts "You lose!"
+    break
+  end
+end
