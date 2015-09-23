@@ -28,4 +28,12 @@ class GameTest < Minitest::Test
     result = g.check_guess 5
     assert_equal true, result
   end
+
+  def test_can_run_out_of_guesses
+    g = Game.new 2
+    5.times do
+      g.check_guess 1
+    end
+    assert g.out_of_guesses?
+  end
 end

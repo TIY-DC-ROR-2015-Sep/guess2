@@ -21,6 +21,8 @@ class Game
     if guess_to_check == @answer
       true
     else
+      # @guesses_left = @guesses_left - 1
+      @guesses_left -= 1
       false
     end
   end
