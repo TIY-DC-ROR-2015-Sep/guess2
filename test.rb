@@ -22,4 +22,10 @@ class GameTest < Minitest::Test
     g = Game.new
     refute g.out_of_guesses?
   end
+
+  def test_check_guess_returns_true_on_a_good_guess
+    g = Game.new 5
+    result = g.check_guess 5
+    assert_equal true, result
+  end
 end
