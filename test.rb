@@ -21,6 +21,7 @@ class GameTest < Minitest::Test
   def test_games_have_guesses_to_start
     g = Game.new
     refute g.out_of_guesses?
+    assert_equal 5, g.guesses_left
   end
 
   def test_check_guess_returns_true_on_a_good_guess
@@ -35,5 +36,6 @@ class GameTest < Minitest::Test
       g.check_guess 1
     end
     assert g.out_of_guesses?
+    assert_equal 0, g.guesses_left
   end
 end

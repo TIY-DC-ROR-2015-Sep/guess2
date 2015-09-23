@@ -1,5 +1,5 @@
 class Game
-  attr_reader :min, :max
+  attr_reader :min, :max, :guesses_left
 
   def initialize answer=nil
     @min = 1
