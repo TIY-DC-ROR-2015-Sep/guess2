@@ -19,11 +19,13 @@ class Game
 
   def check_guess guess_to_check
     if guess_to_check == @answer
-      true
-    else
-      # @guesses_left = @guesses_left - 1
+      "correct"
+    elsif guess_to_check > @answer
       @guesses_left -= 1
-      false
+      "high"
+    else
+      @guesses_left -= 1
+      "low"
     end
   end
 end

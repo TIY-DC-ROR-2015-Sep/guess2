@@ -24,10 +24,19 @@ class GameTest < Minitest::Test
     assert_equal 5, g.guesses_left
   end
 
-  def test_check_guess_returns_true_on_a_good_guess
+  def test_check_guess_returns_correct_on_a_good_guess
     g = Game.new 5
     result = g.check_guess 5
-    assert_equal true, result
+    assert_equal "correct", result
+  end
+
+  def test_check_gives_feedback
+    g = Game.new 7
+    result = g.check_guess 9
+    assert_equal "high", result
+
+    result = g.check_guess 4
+    assert_equal "low", result
   end
 
   def test_can_run_out_of_guesses
