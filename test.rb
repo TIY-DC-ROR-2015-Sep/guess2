@@ -17,4 +17,9 @@ class GameTest < Minitest::Test
     assert g.max.is_a?(Integer)
     assert g.min < g.max
   end
+
+  def test_games_have_guesses_to_start
+    g = Game.new
+    refute g.out_of_guesses?
+  end
 end
