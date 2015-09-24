@@ -3,10 +3,7 @@ require 'pry'
 require "./game"
 require "./player"
 
-def play_game_once player
-  # puts "What max do you want to play to?"
-  # limit = gets.chomp.to_i
-  limit = 50
+def play_game_once player, limit
   game = Game.new max: limit
 
   loop do
@@ -32,6 +29,9 @@ def play_game_once player
   end
 end
 
+puts "What is the limit?"
+limit = gets.chomp.to_i
+
 puts "Welcome. Who is playing?"
 puts "1) Human"
 puts "2) Dumb AI"
@@ -46,7 +46,8 @@ else
   SmartAI
 end
 
-play_game_once player_class.new
+player = player_class.new limit
+play_game_once player, limit
 
 # count = 1
 # loop do

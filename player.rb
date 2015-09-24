@@ -1,7 +1,7 @@
 
 class SmartAI
-  def initialize
-    @max = 50
+  def initialize limit
+    @max = limit
     @min = 1
   end
 
