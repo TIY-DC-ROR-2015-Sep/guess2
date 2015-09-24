@@ -1,3 +1,5 @@
+require 'pry'
+
 require "./game"
 require "./player"
 
@@ -30,8 +32,20 @@ def play_game_once player
   end
 end
 
-# p = Player.new
-p = SmartAI.new
+puts "Welcome. Who is playing?"
+puts "1) Human"
+puts "2) Dumb AI"
+puts "3) Smart AI"
+selection = gets.chomp.to_i
+
+if selection == 1
+  p = Player.new
+elsif selection == 2
+  p = DumbAI.new
+else
+  p = SmartAI.new
+end
+
 play_game_once p
 
 # count = 1

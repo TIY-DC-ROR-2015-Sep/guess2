@@ -1,14 +1,3 @@
-class Player
-  def get_guess
-    gets.chomp.to_i
-  end
-end
-
-class DumbAI
-  def get_guess
-    rand 1..50
-  end
-end
 
 class SmartAI
   def initialize
@@ -26,5 +15,20 @@ class SmartAI
     elsif result == "low"
       @min = get_guess
     end
+  end
+end
+
+class Player < SmartAI
+  def get_guess
+    gets.chomp.to_i
+  end
+
+  def record_result _
+  end
+end
+
+class DumbAI < SmartAI
+  def get_guess
+    rand 1..50
   end
 end
