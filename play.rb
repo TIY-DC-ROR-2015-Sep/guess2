@@ -14,6 +14,7 @@ def play_game_once player
     puts "You guessed #{guess}"
 
     result = game.check_guess guess
+    player.record_result result
     if result == "correct"
       puts "You won!"
       return true
@@ -30,14 +31,15 @@ def play_game_once player
 end
 
 # p = Player.new
-p = DumbAI.new
+p = SmartAI.new
+play_game_once p
 
-count = 1
-loop do
-  player_won = play_game_once p
-  if player_won
-    puts "It took #{count} tries"
-    break
-  end
-  count += 1
-end
+# count = 1
+# loop do
+#   player_won = play_game_once p
+#   if player_won
+#     puts "It took #{count} tries"
+#     break
+#   end
+#   count += 1
+# end
