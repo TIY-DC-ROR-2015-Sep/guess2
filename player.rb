@@ -3,3 +3,9 @@ class Player
     gets.chomp.to_i
   end
 end
+
+class DumbAI
+  def get_guess
+    rand 1..50
+  end
+end

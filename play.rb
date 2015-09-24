@@ -1,27 +1,34 @@
 require "./game"
 require "./player"
 
-puts "What max do you want to play to?"
-limit = gets.chomp.to_i
+def play_game_once game, player
+  loop do
+    puts "You have #{game.guesses_left} guesses"
+    puts "Guess a number between #{game.min} and #{game.max}"
+    guess = player.get_guess
+    puts "You guessed #{guess}"
 
-g = Game.new max: limit
-p = Player.new
+    result = game.check_guess guess
+    if result == "correct"
+      puts "You won!"
+      break
+    else
+      puts "Your guess was #{result}!"
+    end
 
-loop do
-  puts "You have #{g.guesses_left} guesses"
-  puts "Guess a number between #{g.min} and #{g.max}"
-  guess = p.get_guess
-
-  result = g.check_guess guess
-  if result == "correct"
-    puts "You won!"
-    break
-  else
-    puts "Your guess was #{result}!"
-  end
-
-  if g.out_of_guesses?
-    puts "You lose!"
-    break
+    if game.out_of_guesses?
+      puts "You lose!"
+      break
+    end
+    puts
   end
 end
+
+# puts "What max do you want to play to?"
+# limit = gets.chomp.to_i
+limit = 50
+
+g = Game.new max: limit
+# p = Player.new
+p = DumbAI.new
+play_game_once g, p
