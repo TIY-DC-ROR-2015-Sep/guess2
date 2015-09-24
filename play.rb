@@ -38,15 +38,15 @@ puts "2) Dumb AI"
 puts "3) Smart AI"
 selection = gets.chomp.to_i
 
-if selection == 1
-  p = Player.new
+player_class = if selection == 1
+  Player
 elsif selection == 2
-  p = DumbAI.new
+  DumbAI
 else
-  p = SmartAI.new
+  SmartAI
 end
 
-play_game_once p
+play_game_once player_class.new
 
 # count = 1
 # loop do
